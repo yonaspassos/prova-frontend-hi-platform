@@ -1,11 +1,12 @@
 import { useEffect, useRef } from "react";
 
 type CheckBoxProps = {
+  id: string;
   label: string;
-  value: string;
+  value?: "indeterminated" | "checked" | "unchecked";
 };
 
-const CheckBox = ({ label, value }: CheckBoxProps) => {
+const CheckBox = ({ id, label, value }: CheckBoxProps) => {
   const ref = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
@@ -23,7 +24,7 @@ const CheckBox = ({ label, value }: CheckBoxProps) => {
   return (
     <span>
       <label>
-        <input type="checkbox" name="" ref={ref} />
+        <input type="checkbox" name={id} ref={ref} />
         {label}
       </label>
     </span>
